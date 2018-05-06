@@ -19,39 +19,27 @@ public class Sandwich {
         this.ingredients = ingredients;
     }
     public String getMainName() {
-        return mainName;
-    }
+        return mainName;    }
     public void setMainName(String mainName) {
-        this.mainName = mainName;
-    }
+        this.mainName = mainName;    }
     public List<String> getAlsoKnownAs() {
-        return alsoKnownAs;
-    }
+        return alsoKnownAs;    }
     public void setAlsoKnownAs(List<String> alsoKnownAs) {
-        this.alsoKnownAs = alsoKnownAs;
-    }
+        this.alsoKnownAs = alsoKnownAs; }
     public String getPlaceOfOrigin() {
-        return placeOfOrigin;
-    }
+        return placeOfOrigin;    }
     public void setPlaceOfOrigin(String placeOfOrigin) {
-        this.placeOfOrigin = placeOfOrigin;
-    }
+        this.placeOfOrigin = placeOfOrigin;    }
     public String getDescription() {
-        return description;
-    }
+        return description;    }
     public void setDescription(String description) {
-        this.description = description;
-    }
+        this.description = description;    }
     public String getImage() {
-        return image;
-    }
+        return image;    }
     public void setImage(String image) {
-        this.image = image;
-    }
+        this.image = image;    }
     public List<String> getIngredients() {
-        return ingredients;
-    }
+        return ingredients;    }
     public void setIngredients(List<String> ingredients) {
-        this.ingredients = ingredients;
-    }
+        this.ingredients = ingredients;    }
 }
