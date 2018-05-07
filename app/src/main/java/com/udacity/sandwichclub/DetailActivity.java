@@ -10,7 +10,9 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 import org.json.JSONException;
-//region Description of abreviations
+import butterknife.ButterKnife;
+import butterknife.BindView;
+// region Description of abreviations
 /*
 p==pic/image	t==array/tensor
 k==aka			u==URL
@@ -21,29 +23,21 @@ d==description	s==sandwich
 				x==data
 */
 //endregion
-
 public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
-    private TextView KTv=null;
-    private TextView OTv=null;
-    private TextView DTv=null;
-    private TextView GTv=null;
+    @BindView(R.id.also_known_tv) TextView KTv=null;
+    @BindView(R.id.origin_tv) TextView OTv=null;
+    @BindView(R.id.description_tv) TextView DTv=null;
+    @BindView(R.id.ingredients_tv) TextView GTv=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        KTv = findViewById(R.id.also_known_tv);
-        OTv = findViewById(R.id.origin_tv);
-        DTv = findViewById(R.id.description_tv);
-        GTv = findViewById(R.id.ingredients_tv);
-//        ImageView GIv = findViewById(R.id.ingredients_iv);
-//        ImageView ingredientsthmIv = findViewById(R.id.image_thm_iv);
+        ButterKnife.bind(this);
         ImageView ingredientsIv = findViewById(R.id.image_iv);
         Intent intent = getIntent();
-        if (intent == null) {
-            closeOnError();
-        }
+        if (intent == null) {closeOnError();}
         int position = intent.getIntExtra(EXTRA_POSITION, DEFAULT_POSITION);
         if (position == DEFAULT_POSITION) {
             // EXTRA_POSITION not found in intent
@@ -54,10 +48,8 @@ public class DetailActivity extends AppCompatActivity {
         String json = sandwiches[position];
         Sandwich sandwich = null;
         try{ sandwich = JsonUtils.parseSandwichJson(json);
-        }catch(JSONException e){
-            e.printStackTrace();}
+        }catch(JSONException e){e.printStackTrace();}
         if (sandwich == null) {
-            // Sandwich data unavailable
             closeOnError();
             return;
         }
@@ -83,5 +75,4 @@ public class DetailActivity extends AppCompatActivity {
         DTv.setText(S.getDescription());
         //G... ingredients / \n's added
         GTv.setText(TextUtils.join("\n", S.getIngredients()));
-    }}
-//180506
+}}

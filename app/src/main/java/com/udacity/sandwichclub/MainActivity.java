@@ -1,5 +1,4 @@
 package com.udacity.sandwichclub;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +6,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,12 +24,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 launchDetailActivity(position);
-// ghh 180428 use 3 below
-//                launchDetailActivity(3);
             }
         });
     }
-
     private void launchDetailActivity(int position) {
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra(DetailActivity.EXTRA_POSITION, position);
