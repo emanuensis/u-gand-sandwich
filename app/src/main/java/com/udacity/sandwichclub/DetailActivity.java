@@ -33,12 +33,12 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        KTv = (TextView) findViewById(R.id.also_known_tv);
-        OTv = (TextView) findViewById(R.id.origin_tv);
-        DTv = (TextView) findViewById(R.id.description_tv);
-        GTv = (TextView) findViewById(R.id.ingredients_tv);
+        KTv = findViewById(R.id.also_known_tv);
+        OTv = findViewById(R.id.origin_tv);
+        DTv = findViewById(R.id.description_tv);
+        GTv = findViewById(R.id.ingredients_tv);
 //        ImageView GIv = findViewById(R.id.ingredients_iv);
-        ImageView ingredientsthmIv = findViewById(R.id.image_thm_iv);
+//        ImageView ingredientsthmIv = findViewById(R.id.image_thm_iv);
         ImageView ingredientsIv = findViewById(R.id.image_iv);
         Intent intent = getIntent();
         if (intent == null) {
@@ -65,9 +65,7 @@ public class DetailActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
-        Picasso.with(this)
-                .load(sandwich.getImage())
-                .into(ingredientsthmIv);
+//        Picasso.with(this).load(sandwich.getImage()).into(ingredientsthmIv);
         setTitle(sandwich.getMainName());
     }
     private void closeOnError() {
@@ -78,11 +76,12 @@ public class DetailActivity extends AppCompatActivity {
         //K... AKAs / ,'s added
         if (S.getAlsoKnownAs().size() > 0) {
             KTv.setText(TextUtils.join(", ", S.getAlsoKnownAs()));
-        }else{ KTv.setText("NA");}
-        //O... origin / NA
-        OTv.setText(S.getPlaceOfOrigin().isEmpty() ? "NA" : S.getPlaceOfOrigin());
+        }else{ KTv.setText("");}
+        //O... origin / blank
+        OTv.setText(S.getPlaceOfOrigin().isEmpty() ? "" : S.getPlaceOfOrigin());
         //D... description
         DTv.setText(S.getDescription());
         //G... ingredients / \n's added
         GTv.setText(TextUtils.join("\n", S.getIngredients()));
     }}
+//180506
